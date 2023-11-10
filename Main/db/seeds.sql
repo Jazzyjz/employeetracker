@@ -1,16 +1,26 @@
-INSERT INTO departments (department_name)
-VALUES ("Sound"),
-       ("Production"),
-       ("Cameras"),
-       ("Art"),
-       ("Camera and Lighting");
+-- Inserts names of departments into department table
+INSERT INTO departments
+  (name)
+VALUES
+  ('Engineering'),
+  ('Sales'),
+  ('Finance'),
+  ('Legal');
 
---how to create employee within a certain department --
-INSERT INTO sound_employees (department_id, employee)
-VALUES (1, "Matteo McKay"),
-       (2, "Leanna Barber"),
-       (1, "Kinslee Romero"),
-       (3, "Bryson Zhang"),
-       (5, "Isabelle Gross"),
-       (1, "Ford Cordova"),
-       (5, "Florence Bowen"),
+-- Inserts roles of employee into role table
+INSERT INTO role
+  (title, salary, department_id)
+VALUES
+  ('Software Engineer', 85000, 1),
+  ('Athlete', 75000, 2),
+  ('Accountant', 125000, 3),
+  ('Lawyer', 200000, 4);
+
+-- Inserts employee information into employee table
+INSERT INTO employee
+  (first_name, last_name, role_id, manager_id)
+VALUES
+  ('Jalen', 'Garcia', 1, 4),
+  ('America', 'Juarez', 2, 3),
+  ('Amy', 'Valandroz', 3, 1),
+  ('Mary', 'Klein', 4, 5);
