@@ -11,13 +11,11 @@ db.connect(err => {
 
 var employee_tracker = function () {
     inquirer.prompt([{
-        // Begin Command Line
         type: 'list',
         name: 'prompt',
         message: 'What would you like to do?',
-        choices: ['View All Department', 'View All Roles', 'View All Employees', 'Add A Department', 'Add A Role', 'Add An Employee', 'Update An Employee Role', 'Log Out']
+        choices: ['View All Departments', 'View All Roles', 'View All Employees', 'Add A Department', 'Add A Role', 'Add An Employee', 'Update An Employee Role', 'Log Out']
     }]).then((answers) => {
-        // Views the Department Table in the Database
         if (answers.prompt === 'View All Departments') {
             db.query(`SELECT * FROM departments;`, (err, result) => {
                 if (err) throw err;
@@ -41,7 +39,6 @@ var employee_tracker = function () {
             });
         } else if (answers.prompt === 'Add A Department') {
             inquirer.prompt([{
-                // Adding a Department
                 type: 'input',
                 name: 'department',
                 message: 'What is the name of the department?',
@@ -61,7 +58,6 @@ var employee_tracker = function () {
                 });
             })
         } else if (answers.prompt === 'Add A Role') {
-            // Beginning with the database so that we may acquire the departments for the choice
             db.query(`SELECT * FROM departments`, (err, result) => {
                 if (err) throw err;
 
